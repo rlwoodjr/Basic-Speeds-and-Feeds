@@ -1,20 +1,201 @@
-<!--index.html-->
-
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Basic Speeds and Feeds</title>
-  </head>
-  <body>
-    <h1>Basic Speeds and Feeds</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+<html lang="en">
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>BobsCNC Basic Speeds & Feeds</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+		<meta name="version" content="" />
+
+		<meta name="metro4:init" content="true">
+
+		<script type="text/javascript">
+			if (screen.width <= 720) {
+				window.location = "mobile.html";
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="lib/jquery/fontselect/styles/fontselect-bootstrap4.css" />
+		<link type="text/css" rel="stylesheet" media="all" href="css/main.css" />
+		<link type="text/css" rel="stylesheet" media="all" href="lib/jquery/jquery-ui.css" />
+		<link rel="stylesheet" href="lib/metro4/css/metro-all.css" />
+
+	</head>
+
+	<body>
+		<!-- container1 Drog Container wraps all other content -->
+		<div id="container1">
+			<span class="fa-layers fa-fw fa-4x" id="flyingdoc" style="display: none; position: absolute; z-index: 20000;">
+				<i class="fas fa-square fg-red"></i>
+				<i class="fa fa-object-group fg-white" data-fa-transform="shrink-6"></i>
+			</span>
+			<div data-role="splitter" data-split-sizes="70,30" class="h-100">
+				<div id="col1">
+					<div class="window drop-shadow" style="height: calc(100% - 10px);">
+						<div class="window-caption bg-openbuilds">
+							<span class="title">BobsCNC BASIC Speeds & Feeds<span class="workspaceTitle"></span></span>
+						</div>
+						<div class="window-content pt-2" style="overflow-y:hidden; ">
+							<nav data-role="ribbonmenu">
+								<ul class="tabs-holder">
+									<li><a href="#section-workspace">WorkSpace</a></li>
+									
+								</ul>
+								<div class="content-holder">
+									<div class="section" id="section-workspace">
+
+										<div class="group">
+											<button class="ribbon-button"  onclick="openAboutDialog();">
+											  <span class="icon">
+												<img src="splash.png">
+											  </span>
+											  <span class="caption">BobsCNC</span>
+											</button > 
+											<span class="title">About</span>
+										  </div>
+							
+										  <div class="dialog" data-role="dialog" id="aboutDialog">
+											<div class="dialog-title"><strong>About BobsCNC Basic Speeds & Feeds</strong></div>
+											<div><img src="apple-icon-180x180.png"> </div>
+											<div class="dialog-content">
+											
+											  <strong>BobsCNC's Basic Speds & Feeds is software that will:    </strong>   
+												<ul>
+												  <li>create vector drawings</li>
+												  <li>import vector and picture files</li>
+												  <li>create gcode files</li>
+												  <li>upload gcode to Basic SENDER</li>
+												</ul>
+												<strong></strong>
+											</div>
+										  <div>
+										</div>  
+									  </div>
+
+
+									
+						
+									
+										<div class="group">
+											<div class="ribbon-group">
+												<button class="ribbon-icon-button" onclick="resetView();">
+													<span class="icon">
+														<span class="fa fa-eye"></span>
+													</span>
+													<span class="caption">Job</span>
+												</button>
+												<br>
+												<button class="ribbon-icon-button" onclick="resetView(scene.getObjectByName('Grid'));">
+													<span class="icon">
+														<span class="fa fa-th"></span>
+													</span>
+													<span class="caption">Grid</span>
+												</button>
+											</div>
+											<span class="title">Zoom</span>
+										</div>
+										
+									
+
+
+										<div class="group">
+											<div class="ribbon-group">
+												<input type="checkbox" data-role="switch" name="unitSwitch" id="unitSwitch" onclick="changeUnits()" >
+												<br>
+												<label for="unitSwitch" class="caption" style="font-size: 16px"  id="unitDisplay">mm</label>
+											</div>
+											<span class="title">Unit Display</span>
+										</div>
+
+
+										
+										<div class="group">
+											<div class="ribbon-group"></div>
+											<button class="ribbon-button" onclick="alreadyDetected = false; checkIfDriverIsInstalled(); Metro.dialog.open('#settingsmodal');">
+												<span class="icon">
+													<span class="fa fa-fw fa-cogs"></span>
+												</span>
+												<span class="caption">Settings</span>
+											</button>
+											<div class="ribbon-group"></div>
+											<span class="title">App</span>
+										</div>
+
+										<div class="group"></div>
+										
+									
+									
+										
+
+								</div>
+
+								</div>
+							</nav>
+							
+
+
+
+		
+				
+
+	<script type="text/javascript" src="lib/fontawesome5/js/all.js"></script>
+
+	<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/jquery/jquery-ui.js"></script>
+	<script type="text/javascript" src="lib/jquery/jquery.ui.touch-punch.min.js"></script>
+
+
+
+	<!-- METRO -->
+	<script type="text/javascript" src="lib/metro4/js/metro.min.js"></script>
+
+
+
+	<!-- Google Fonts as CAM paths -->
+	<script type="text/javascript" src="lib/jquery/fontselect/jquery.fontselect.js"></script>
+
+
+
+
+
+
+
+
+	<!-- User Interface -->
+	<script type="text/javascript" src="js/main.js"></script>
+
+
+
+
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38524928-4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-38524928-4');
+	</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46207169-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-46207169-2');
+	</script>
+
 </html>
