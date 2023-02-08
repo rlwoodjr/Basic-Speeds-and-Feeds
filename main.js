@@ -7,7 +7,7 @@ const createWindow = () => {
         autoHideMenuBar: true
     });
 
-    mainWindow.loadFile('electron.html');
+    mainWindow.loadFile('index.html');
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
