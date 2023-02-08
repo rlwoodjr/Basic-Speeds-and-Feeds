@@ -19,13 +19,13 @@
     "author": "github.com/rlwoodjr <bob@bobscnc.com>",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/rlwoodjrBasic-speeds-and-feeds/issues"
+        "url": "https://github.com/rlwoodjr/Basic-speeds-and-feeds/issues"
     },
     "homepage": "https://github.com/rlwoodjr/Basic-speeds-and-feeds",
     "devDependencies": {
         "electron": "^16.2.8",
         "electron-builder": "^22.14.5",
-        "electron-builder-notarize": "^1.2.0"
+        "electron-builder-notarize": "^1.2.2"
     },
     "build": {
         "appId": "bobscnc.cam",
