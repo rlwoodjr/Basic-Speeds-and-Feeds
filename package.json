@@ -1,0 +1,11 @@
+{
+    "name": "basic-spees-and-feeds",
+    "version": "0.0.1",
+    "description": "Basic SPEEDS & FEEDS",
+    "main": "main.js",
+    "author": "JBob Wood",
+    "license": "apache 2.0",
+    "devDependencies": {
+        "electron": "^23.0.0"
+    }
+}
