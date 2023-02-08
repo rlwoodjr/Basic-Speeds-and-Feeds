@@ -1,6 +1,6 @@
 {
     "name": "bobscnc-basic-speeds-and-feeds",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Basic Speeds & Feeds - ",
     "main": "main.js",
     "scripts": {
@@ -28,7 +28,7 @@
         "electron-builder-notarize": "^1.2.2"
     },
     "build": {
-        "appId": "bobscnc.cam",
+        "appId": "bobscnc.basic-speeds-and-feeds",
         "afterSign": "electron-builder-notarize",
         "mac": {
             "hardenedRuntime": true,
