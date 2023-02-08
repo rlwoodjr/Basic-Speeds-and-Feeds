@@ -6,6 +6,10 @@
     "author": "JBob Wood",
     "license": "apache 2.0",
     "devDependencies": {
-        "electron": "^23.0.0"
+        "electron": "^23.0.0",
+        "electron-builder": "^23.3.3"
     }
 }
+
+
+
