@@ -8,7 +8,7 @@
 		<title>BobsCNC Basic Speeds & Feeds</title>
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<meta name="author" content="" />
+		<meta name="Bob Wood" content="" />
 		<meta name="version" content="" />
 
 		<meta name="metro4:init" content="true">
@@ -18,7 +18,6 @@
 				window.location = "mobile.html";
 			}
 		</script>
-		<link rel="stylesheet" type="text/css" href="lib/jquery/fontselect/styles/fontselect-bootstrap4.css" />
 		<link type="text/css" rel="stylesheet" media="all" href="css/main.css" />
 		<link type="text/css" rel="stylesheet" media="all" href="lib/jquery/jquery-ui.css" />
 		<link rel="stylesheet" href="lib/metro4/css/metro-all.css" />
@@ -26,142 +25,183 @@
 	</head>
 
 	<body>
-		<!-- container1 Drog Container wraps all other content -->
-		<div id="container1">
+
 			<span class="fa-layers fa-fw fa-4x" id="flyingdoc" style="display: none; position: absolute; z-index: 20000;">
 				<i class="fas fa-square fg-red"></i>
 				<i class="fa fa-object-group fg-white" data-fa-transform="shrink-6"></i>
 			</span>
-			<div data-role="splitter" data-split-sizes="70,30" class="h-100">
-				<div id="col1">
-					<div class="window drop-shadow" style="height: calc(100% - 10px);">
-						<div class="window-caption bg-openbuilds">
-							<span class="title">BobsCNC BASIC Speeds & Feeds<span class="workspaceTitle"></span></span>
-						</div>
-						<div class="window-content pt-2" style="overflow-y:hidden; ">
-							<nav data-role="ribbonmenu">
-								<ul class="tabs-holder">
-									<li><a href="#section-workspace">WorkSpace</a></li>
-									
-								</ul>
-								<div class="content-holder">
-									<div class="section" id="section-workspace">
+	
+			
+					<div>
+						<div class=" bg-bobscnc m-6" style="display: flex;justify-content: center "><span ><h2>Basic Speeds & Feeds</h2></span></div>
+								
+								<div class="dialog-content ">
 
-										<div class="group">
-											<button class="ribbon-button"  onclick="openAboutDialog();">
-											  <span class="icon">
-												<img src="splash.png">
-											  </span>
-											  <span class="caption">BobsCNC</span>
-											</button > 
-											<span class="title">About</span>
-										  </div>
-							
-										  <div class="dialog" data-role="dialog" id="aboutDialog">
-											<div class="dialog-title"><strong>About BobsCNC Basic Speeds & Feeds</strong></div>
-											<div class="dialog-content">
+									<form>
+										<hr class="class-2" />
+										<h2>Project Setup</h1>
+										<div class="row mb-2">
 											
-											  <strong>BobsCNC's Basic Speds & Feeds is software that will:    </strong>   
-												<ul>
-												  <li>create vector drawings</li>
-												  <li>import vector and picture files</li>
-												  <li>create gcode files</li>
-												</ul>
-												<strong></strong>
-											</div>
-										  <div>
-										</div>  
-									  </div>
+											<div class="cell-sm-6  projectbox">
+												
+												<div class="row mb-2">
+													<label class="cell-sm-5">Machine</label>
+														<div class="cell-sm-6">
+															<select  data-filter="false"  id="selectMachine" onchange="updateValues()">
+																<option value="Quantum">Quantum </option>
+																<option value="Evolution">Evolution</option>
+																<option value="Revolution">Revolution</option>
+																<option value="KL7 Series">KL7 Series</option>
+																<option value="E Series">E Series</option>
+																<option value="Other">Other</option>
+															</select>
+														</div>
+												</div>
 
+												<div class="row mb-2">
+													<label class="cell-sm-5">Material</label>
+														<div class="cell-sm-6">
+															<select data-filter="false" id="selectMaterial" onchange="updateValues()">
+																	<option value="Hardwood">Hardwood</option>
+																	<option value="Softwood" >Softwood</option>
+																	<option value="Plywood">Plywood</option> 
+																	<option value="Acrylic">Acrylic (hard)</option>
+																	<option value="Acetal">Acetal (soft)</option>
+																	<option value="Foam board">Foam board</option>
+																	<option value="MDF">MDF</option>
+																	<option value="Aluminum">Aluminum</option>
+														
+															</select>
+														</div>
+												</div>
 
-									
-						
-									
-										<div class="group">
-											<div class="ribbon-group">
-												<button class="ribbon-icon-button" onclick="resetView();">
-													<span class="icon">
-														<span class="fa fa-eye"></span>
-													</span>
-													<span class="caption">Job</span>
-												</button>
-												<br>
-												<button class="ribbon-icon-button" onclick="resetView(scene.getObjectByName('Grid'));">
-													<span class="icon">
-														<span class="fa fa-th"></span>
-													</span>
-													<span class="caption">Grid</span>
-												</button>
-											</div>
-											<span class="title">Zoom</span>
-										</div>
-										
-									
-
-
-										<div class="group">
-											<div class="ribbon-group">
-												<input type="checkbox" data-role="switch" name="unitSwitch" id="unitSwitch" onclick="changeUnits()" >
-												<br>
-												<label for="unitSwitch" class="caption" style="font-size: 16px"  id="unitDisplay">mm</label>
-											</div>
-											<span class="title">Unit Display</span>
-										</div>
-
-
-										
-										<div class="group">
-											<div class="ribbon-group"></div>
-											<button class="ribbon-button" onclick="alreadyDetected = false; checkIfDriverIsInstalled(); Metro.dialog.open('#settingsmodal');">
-												<span class="icon">
-													<span class="fa fa-fw fa-cogs"></span>
-												</span>
-												<span class="caption">Settings</span>
-											</button>
-											<div class="ribbon-group"></div>
-											<span class="title">App</span>
-										</div>
-
-										<div class="group"></div>
-										
-									
-									
-										
-
-								</div>
-
-								</div>
-							</nav>
 							
+												<div class="row mb-2">
+													<label class="cell-sm-5">Units</label>
+														<div class="cell-sm-6">
+															<select data-filter="false" id="selectUnits" onchange="changeUnits(); updateValues()">
+															<option value="mm" >mm</option>
+															<option value="inches">inches </option>
+															</select>
+														</div>
+												</div>
+								
+
+												<div class="row mb-2">
+													<label class="cell-sm-5">Bit Type</label>
+														<div class="cell-sm-6">
+															<select data-filter="false" id="selectBitType" onchange="updateValues()">
+																	<option value="End mill">End mill</option>
+																	<option value="Ball nose" > Ball nose</option>
+																	<option value="Tapered Ball nose">Tapered ball nose</option> 
+																	<option value="V-Bit">V-bit</option>
+															</select>
+														</div>
+												</div>
+								
+												<div class="row mb-2" id="bitin">
+													<label class="cell-sm-5">Bit Diameter</label>
+														<div class="cell-sm-6">
+															<select  data-filter="false"  id="selectBitDiameterinch" onchange="updateValues()">
+																<option value="0.0313">0.0313"</option>
+																<option value="0.0625">0.0625"</option>
+																<option value="0.125">0.125"</option>
+																<option value="0.250">0.250"</option>
+																<option value="0.375">0.375"</option>
+																<option value="0.500">0.500"</option>
+																<option value="0.625">0.625"</option>
+																<option value="0.750">0.750"</option>
+																<option value="1.00">1.00"</option>
+																<option value="1.25">1.25"</option>
+																<option value="1.50">1.50"</option>
+																<option value="2.00">2.00"</option>
+															</select>
+														</div>
+												</div>
+
+												<div class="row mb-2" id="bitmm">
+													<label class="cell-sm-5">Bit Diameter </label>
+														<div class="cell-sm-6">
+															<select data-filter="false" id="selectBitDiametermm" onchange="updateValues()">
+																	<option value="0.5">0.5 mm</option>
+																	<option value="1.0">1.0 mm</option>
+																	<option value="2.0">2.0 mm</option>
+																	<option value="3.0">3.0 mm</option>
+																	<option value="4.0">4.0 mm</option>
+																	<option value="5.0">5.0 mm</option>
+																	<option value="6.0">6.0 mm</option>
+																	<option value="8.0">8.0 mm</option>
+																	<option value="10.0">10.0 mm</option>
+																	<option value="12.0">12.0 mm</option>
+																	<option value="15.0">15.0 mm</option>
+																	<option value="20.0">20.0 mm</option>
+																	<option value="50.0">50.0 mm</option>
+															</select>
+														</div>
+												</div>
+								
+												<div class="row mb-2" >
+													<label class="cell-sm-5">Number of Flutes</label>
+														<div class="cell-sm-6">
+															<select  data-filter="false" id="selectFlutes" onchange="updateValues()" >
+																	<option value=1>1</option>
+																	<option value=2>2</option>
+																	<option value=3>3</option> 
+															</select>
+														</div>
+												</div>
+
+											
+
+												<div class="row mb-2">	
+													<label class="cell-sm-5"></label>													
+												</div>
+												<div class="row mb-2">														
+												</div>
+											
+											</div>
+								
+
+											<div class="cell-sm-6 p-2 notebox " id="selectedNotes" style="  overflow-y: scroll" >
+											</div>
+									
+										</div>
+											<div >
+												
+												<hr class="class-2" />
+												<h2>Project Settings</h1>
+																								
+													<ul>
+														<li>Spindle RPM:</li>
+														<li>Feed rate:</li>
+														<li>Plunge rate:</li>
+														<li>Stepover:</li>
+														<li>Depth per pass:</li>
+													</ul>
+												<hr class="class-1" />
+
+												<h6>Speeds and Feeds calculations are a rule of thumb. Cutting parametes may need to be adjusted for optimal results.</h6>
+											</div>
+									</form>
 
 
+								</div>
+						</div>
+				
 
+	</body>
 		
 				
 
-	<script type="text/javascript" src="lib/fontawesome5/js/all.js"></script>
+	
 
 	<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="lib/jquery/jquery-ui.js"></script>
-	<script type="text/javascript" src="lib/jquery/jquery.ui.touch-punch.min.js"></script>
-
-
 
 	<!-- METRO -->
 	<script type="text/javascript" src="lib/metro4/js/metro.min.js"></script>
 
-
-
-
-
-
-
 	<!-- User Interface -->
-	<script type="text/javascript" src="js/main.js"></script>
-
-
-
-
+	<script type="text/javascript" src="js/calculate.js"></script>
 
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -191,3 +231,8 @@
 	</script>
 
 </html>
+
+
+
+
+
