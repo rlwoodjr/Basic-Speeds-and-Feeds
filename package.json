@@ -1,6 +1,6 @@
 {
     "name": "bobscnc-basic-speeds-and-feeds",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "description": "Basic Speeds & Feeds - ",
     "main": "main.js",
     "scripts": {
