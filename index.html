@@ -33,16 +33,15 @@
 	
 			
 					<div>
-						<div class=" bg-bobscnc m-6" style="display: flex;justify-content: center "><span ><h2>Basic Speeds & Feeds</h2></span></div>
+						<div class=" bg-bobscnc mb-3" style="display: flex;justify-content: center"><span ><h2>Basic Speeds & Feeds</h2></span></div>
 								
-								<div class="dialog-content ">
+								<div class="windowbox" >
 
 									<form>
-										<hr class="class-2" />
 										<h2>Project Setup</h1>
 										<div class="row mb-2">
 											
-											<div class="cell-sm-6  projectbox">
+											<div class="cell-sm-6  projectinput">
 												
 												<div class="row mb-2">
 													<label class="cell-sm-5">Machine</label>
@@ -53,6 +52,17 @@
 																<option value="Revolution">Revolution</option>
 																<option value="KL7 Series">KL7 Series</option>
 																<option value="E Series">E Series</option>
+																<option value="Other">Other</option>
+															</select>
+														</div>
+												</div>
+
+												<div class="row mb-2">
+													<label class="cell-sm-5">Spindle</label>
+														<div class="cell-sm-6">
+															<select  data-filter="false"  id="selectSpindle" onchange="updateValues()">
+																<option value="Makita">Makita RT401C </option>
+																<option value="DeWalt">DeWalt 611</option>
 																<option value="Other">Other</option>
 															</select>
 														</div>
@@ -93,7 +103,7 @@
 															<select data-filter="false" id="selectBitType" onchange="updateValues()">
 																	<option value="End mill">End mill</option>
 																	<option value="Ball nose" > Ball nose</option>
-																	<option value="Tapered Ball nose">Tapered ball nose</option> 
+																	<option value="Tapered ball nose">Tapered ball nose</option> 
 																	<option value="V-Bit">V-bit</option>
 															</select>
 														</div>
@@ -151,44 +161,34 @@
 														</div>
 												</div>
 
-											
-
-												<div class="row mb-2">	
-													<label class="cell-sm-5"></label>													
-												</div>
-												<div class="row mb-2">														
-												</div>
-											
+											</div>
+								
+											<div class="cell-sm-6 p-2 notebox"  id="selectedNotes" style="  overflow-y: scroll" >
 											</div>
 								
 
-											<div class="cell-sm-6 p-2 notebox " id="selectedNotes" style="  overflow-y: scroll" >
-											</div>
-									
+										<div class="cell-sm-12 mb-3 projectbox" >
+											<h2>Project Settings</h1>
+												<ul>
+													<li>Spindle Dial:  <span class="bg-project" id="projectDial"></span> </li>
+													<li>Spindle RPM:  <span class="bg-project" id="projectRPM"></span> RPM</li>
+													<li>Feed rate: <span class="bg-project" id="projectFR"></span> <span id="unitText1"></span>/minute</li>
+													<li>Plunge rate: <span class="bg-project" id="projectPR"></span> <span id="unitText2"></span>/minute</li>
+													<li>Stepover: <span class="bg-project" id="projectSO"></span>%</li>
+													<li>Depth per pass: <span class="bg-project" id="projectDOC"></span> <span id="unitText3"></span></li>
+												</ul>
 										</div>
-											<div >
-												
-												<hr class="class-2" />
-												<h2>Project Settings</h1>
-																								
-													<ul>
-														<li>Spindle RPM:</li>
-														<li>Feed rate:</li>
-														<li>Plunge rate:</li>
-														<li>Stepover:</li>
-														<li>Depth per pass:</li>
-													</ul>
-												<hr class="class-1" />
+									</div>
 
-												<h6>Speeds and Feeds calculations are a rule of thumb. Cutting parametes may need to be adjusted for optimal results.</h6>
-											</div>
-									</form>
+										<div style:="cell-sm-12 ">
+											<h6>Speeds and Feeds calculations are a rule of thumb. Cutting parametes may need to be adjusted for optimal results.</h6>
+										</div>
+								</form>
 
 
 								</div>
 						</div>
 				
-
 	</body>
 		
 				
@@ -202,33 +202,6 @@
 
 	<!-- User Interface -->
 	<script type="text/javascript" src="js/calculate.js"></script>
-
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38524928-4"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-38524928-4');
-	</script>
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46207169-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-46207169-2');
-	</script>
 
 </html>
 
