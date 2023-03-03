@@ -15,7 +15,7 @@ $(document).ready(function(){
     if (localStorage.getItem('Spindle')) {
         $('#selectSpindle').val(localStorage.getItem('Spindle'));
     }  else{
-        $('#selectMaterial').val("Makita")
+        $('#selectSpindle').val("Makita")
     }
     if (localStorage.getItem('BitType')) {
         $('#selectBitType').val(localStorage.getItem('BitType'));
@@ -154,7 +154,7 @@ function updateValues(){
             SFM = 450;
             MaterialFactor = 0.95;
             break;
-        case "Foam board":
+        case "Foamboard":
             SFM = 1500;
             MaterialFactor = 0.5;
             break;
@@ -265,6 +265,7 @@ function updateValues(){
                     Ratio = "1.0";
 
                 }
+                $('#projectDial').html(Dial.toFixed(1));
                 break;
             case "DeWalt":
                 if (RPM > 27000)
@@ -288,9 +289,11 @@ function updateValues(){
                     Ratio = "1.0";
 
                 }
+                $('#projectDial').html(Dial.toFixed(1));
                 break;
             case "Other":
 
+            $('#projectDial').html("N/A");
                 break;
             }
 
@@ -300,7 +303,7 @@ function updateValues(){
         if(FluteCount>2){addNote[6]=true}
         FeedRate = RPM * FluteCount * ChipLoad*UnitConvert*Ratio;
         PlungeRate=0.5*FeedRate;
-        $('#projectDial').html(Dial.toFixed(1));
+        
     }
 
 
