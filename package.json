@@ -32,7 +32,7 @@
         "afterSign": "electron-builder-notarize",
         "mac": {
             "hardenedRuntime": true,
-            "icon": "icon.icns",
+            "icon": "build/icon.icns",
             "category": "public.app-category.graphics-design",
             "entitlements": "build/entitlements.mac.plist"
         },
@@ -71,7 +71,7 @@
             ]
         },
         "dmg": {
-            "icon": "icon.icns",
+            "icon": "build/icon.icns",
             "contents": [
                 {
                     "x": 410,
