@@ -34,7 +34,7 @@
             "hardenedRuntime": true,
             "icon": "icon.icns",
             "category": "public.app-category.graphics-design",
-            "entitlements": "entitlements.mac.plist"
+            "entitlements": "build/entitlements.mac.plist"
         },
         "productName": "BobsCNC Speeds & Feeds",
         "icon": "icon.icns",
